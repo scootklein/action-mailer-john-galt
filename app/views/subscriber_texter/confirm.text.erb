@@ -1,0 +1,8 @@
+<%
+  # only 140 chars!
+  intro = 'Thanks for signing up for '
+  instructions = " notifications. Unsubscribe at any time by visiting #{unsubscribe_url(self.unsubscribe_code)}"
+
+  org_name_limit = 140 - intro.length - instructions.length
+%>
+<%=raw intro + truncate(@subscriber.organization.name, org_name_limit) + instructions -%>
